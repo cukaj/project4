@@ -52,7 +52,7 @@ class Game {
     private Player[] players;
     private int[][] rulesArray;
     private Scanner sc;
-    private String[] weapons = new String[] { "rock", "paper", "scissors", "saw" };
+    private String[] weapons = new String[] { "", "rock", "paper", "scissors", "saw" };
 
     public Game(Player player1, Player player2) {
         sc = new Scanner(System.in);
@@ -112,7 +112,7 @@ class Game {
 
             System.out.println("player two chose " + weapons[p2Choice] + "\n");
             int computer = (int) (Math.random() * 4);
-            System.out.println("computer chose " + weapons[computer] + "\n");
+            System.out.println("computer chose " + weapons[computer + 1] + "\n");
             int result1 = rulesArray[p1Choice - 1][computer];
             int result2 = rulesArray[p2Choice - 1][computer];
             if (result1 == 1) {
