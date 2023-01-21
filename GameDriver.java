@@ -159,6 +159,14 @@ class Game {
     }
 
     private void showStat() {
+        if (players[1].win > players[2].win) {
+            System.out.println("---------" + players[1].name + " is the winner " + "---------");
+        } else if (players[1].win < players[2].win) {
+            System.out.println("---------" + players[2].name + " is the winner " + "---------");
+        } else {
+            System.out.println("---------" + "no winner try again" + "---------");
+
+        }
         System.out.println("Player 1: " + players[1].name);
         System.out.println("Wins: " + players[1].win);
         System.out.println("Losses: " + players[1].loss);
@@ -168,6 +176,8 @@ class Game {
         System.out.println("Wins: " + players[2].win);
         System.out.println("Losses: " + players[2].loss);
         System.out.println(players[2].stat);
+        System.out.println(players[2].stat);
+
         start();
     }
 }
