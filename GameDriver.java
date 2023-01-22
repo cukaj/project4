@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class GameDriver {
+public class test {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         Player[] players = getPlayers(sc);
@@ -175,7 +175,6 @@ class Game {
         System.out.println("Player 2: " + players[2].name);
         System.out.println("Wins: " + players[2].win);
         System.out.println("Losses: " + players[2].loss);
-        System.out.println(players[2].stat);
         System.out.println(players[2].stat);
 
         start();
