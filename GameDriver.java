@@ -157,7 +157,7 @@ class Game {
         System.out.println(
                 "\n You win your game against the computer if you win more rounds. Ties are possible.");
         System.out.println(
-                "\n Overall human winner is the player with more wins against the computer. (Viewable in Statistics Menu)");
+                "\n Overall human winner is the player with more wins against the computer. (Viewable in Statistics Menu) \n \n");
 
         start();
     }
@@ -168,7 +168,7 @@ class Game {
         } else if (players[1].win < players[2].win) {
             System.out.println("---------" + players[2].name + " is the winner " + "---------");
         } else {
-            System.out.println("---------" + "no winner try again" + "---------");
+            System.out.println("---------" + "no winner! you are tied" + "---------");
 
         }
         System.out.println("Player 1: " + players[1].name);
