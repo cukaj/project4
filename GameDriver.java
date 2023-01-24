@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class test {
+public class GameDriver {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
         Player[] players = getPlayers(sc);
@@ -58,10 +58,10 @@ class Game {
         sc = new Scanner(System.in);
         players = new Player[] { new Player("computer"), player1, player2 };
         rulesArray = new int[][] {
-                { -1, 0, 1, 1 },
-                { 1, -1, 0, 0 },
-                { 0, 1, -1, 0 },
-                { 0, 1, 1, -1 }
+                { 0, -1, 1, 1 },
+                { 1, 0, -1, -1 },
+                { -1, 1, 0, -1 },
+                { -1, 1, 1, 0 }
         };
     }
 
@@ -101,42 +101,42 @@ class Game {
             System.out.println("2. paper");
             System.out.println("3. scissors");
             System.out.println("4. saw");
-            System.out.println("Player 1 choice:");
+            System.out.println(players[1].name + " enter your choice:");
             int p1Choice = sc.nextInt();
             sc.nextLine();
-            System.out.println("player one chose " + weapons[p1Choice] + "\n");
+            System.out.println(players[1].name + " chose " + weapons[p1Choice] + "\n");
 
-            System.out.println("Player 2 choice:");
+            System.out.println(players[2].name + " enter your choice:");
             int p2Choice = sc.nextInt();
             sc.nextLine();
 
-            System.out.println("player two chose " + weapons[p2Choice] + "\n");
+            System.out.println(players[2].name + " chose " + weapons[p2Choice] + "\n");
             int computer = (int) (Math.random() * 4);
             System.out.println("computer chose " + weapons[computer + 1] + "\n");
             int result1 = rulesArray[p1Choice - 1][computer];
             int result2 = rulesArray[p2Choice - 1][computer];
             if (result1 == 1) {
-                System.out.println("player one " + players[1].name + " wins! \n");
+                System.out.println(players[1].name + " vs computer: " + players[1].name + " wins! \n");
                 players[1].win++;
                 players[1].stat.rounds[round] = 1;
             } else if (result1 == -1) {
-                System.out.println(players[1].name + " player one vs computer" + " computer wins!\n");
+                System.out.println(players[1].name + " vs computer: computer wins! \n");
                 players[1].loss++;
                 players[1].stat.rounds[round] = -1;
             } else {
-                System.out.println(players[1].name + " player one vs computer It's a tie! \n");
+                System.out.println(players[1].name + " vs computer: it's a tie! \n");
                 players[1].stat.rounds[round] = 0;
             }
             if (result2 == 1) {
-                System.out.println("player two " + players[2].name + " wins! \n");
+                System.out.println(players[2].name + " vs computer: " + players[2].name + " wins! \n");
                 players[2].win++;
                 players[2].stat.rounds[round] = 1;
             } else if (result2 == -1) {
-                System.out.println(players[2].name + " player two vs computer" + " computer wins!\n");
+                System.out.println(players[2].name + " vs computer: computer wins! \n");
                 players[2].loss++;
                 players[2].stat.rounds[round] = -1;
             } else {
-                System.out.println(players[2].name + " player two vs computer " + "It's a tie! \n");
+                System.out.println(players[2].name + " vs computer: it's a tie! \n");
                 players[2].stat.rounds[round] = 0;
             }
         }
@@ -154,6 +154,10 @@ class Game {
                 "d.	Saw cuts through scissors and paper therefore saw wins over scissors and paper. Saw loses against rock.");
         System.out.println(
                 "e.	If player and computer make the same selection, there is a tie");
+        System.out.println(
+                "\n You win your game against the computer if you win more rounds. Ties are possible.");
+        System.out.println(
+                "\n Overall human winner is the player with more wins against the computer. (Viewable in Statistics Menu)");
 
         start();
     }
